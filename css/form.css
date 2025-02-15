@@ -1,0 +1,236 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-image: url(/assets/login/image\ 31.png);
+    background-attachment: fixed;  /* Background tidak ikut scroll */
+    background-size: cover;        /* Menyesuaikan ukuran layar */
+    background-position: center;   /* Memposisikan background di tengah */
+}
+
+.content {
+    background: #f8f9fd;
+    background: linear-gradient(
+        0deg,
+        rgba(212, 211, 220, 0.256) 0%,
+        rgba(240, 241, 241, 0.364) 0%
+    );
+    padding: 25px 35px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+    border: 3px solid rgb(18, 13, 53);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi transformasi */
+}
+
+.content:hover {
+    transform: scale(1.02); /* Membesar saat hover */
+    box-shadow: rgba(133, 189, 215, 0.95) 0px 40px 40px -20px; /* Bayangan lebih tebal */
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+label:hover {
+    color: #6a5af9; /* Warna berubah saat hover */
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Animasi border dan shadow */
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #6a5af9; /* Warna border saat focus */
+    box-shadow: 0 0 8px rgba(106, 90, 249, 0.5); /* Shadow saat focus */
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease; /* Animasi background dan transform */
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+button[type="button"]:hover {
+    background-color: #c82333;
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.hidden {
+    display: none;
+}
+
+.button-group button, 
+.button-group .decline {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button-group button[type="Print"] {
+    background-color: #28a745;
+    color: white;
+}
+
+.button-group button[type="Print"]:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.button-group button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+.button-group button[type="button"]:hover {
+    background-color: #c82333;
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.button-group .decline {
+    background: #F5BF00;
+    color: #fff;
+    border: 1px solid #ccc;
+}
+
+.button-group .decline:hover {
+    background: #F5BF00;
+    color: #fff;
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease; /* Animasi opacity */
+}
+
+.popup.hidden {
+    opacity: 0; /* Menghilangkan popup dengan efek fade */
+    pointer-events: none; /* Non-aktifkan interaksi saat hidden */
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    transform: scale(0.9); /* Skala awal */
+    transition: transform 0.3s ease; /* Animasi transform */
+}
+
+.popup.active .popup-content {
+    transform: scale(1); /* Skala normal saat aktif */
+}
+
+.popup-content img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.popup-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.popup-content a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.popup-buttons .allow {
+    background: linear-gradient(90deg, #6a5af9, #836fff);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Animasi transform */
+}
+
+.popup-buttons .allow:hover {
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.popup-buttons .decline {
+    background: #e0e0e0;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Animasi transform */
+}
+
+.popup-buttons .decline:hover {
+    transform: scale(1.05); /* Membesar saat hover */
+}

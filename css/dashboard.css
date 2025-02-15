@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out; /* Animasi zoom saat hover */
+}
+
+.video-container:hover video {
+    transform: translate(-50%, -50%) scale(1.1); /* Efek zoom saat hover */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.79);
+    clip-path: polygon(0 0, 65% 0, 55% 100%, 0 100%);
+    transition: clip-path 0.5s ease-in-out; /* Animasi clip-path saat hover */
+}
+
+.video-container:hover .overlay {
+    clip-path: polygon(0 0, 75% 0, 65% 100%, 0 100%); /* Perubahan clip-path saat hover */
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 700px;
+    z-index: 3;
+    transition: transform 0.5s ease-in-out; /* Animasi teks saat hover */
+}
+
+.video-container:hover .text {
+    transform: translateY(-50%) translateX(20px); /* Geser teks ke kanan saat hover */
+}
+
+.text h1 {
+    font-size: 3em;
+    font-weight: 700;
+    font-style: italic;
+    word-spacing: 5px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out; /* Animasi warna teks saat hover */
+}
+
+.text h1:hover {
+    color: #ff9966; /* Warna teks berubah saat hover */
+}
+
+.text p {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-family: 'Merriweather', serif;
+    word-spacing: 3px;
+    margin-bottom: 40px;
+    transition: opacity 0.3s ease-in-out; /* Animasi opacity teks saat hover */
+}
+
+.text:hover p {
+    opacity: 0.8; /* Opacity teks berkurang saat hover */
+}
+
+.input-container {
+    padding-top: 30px;
+    position: absolute;
+    width: 300px;
+    margin: 0 auto;
+}
+
+/*============== Card ============== */
+.wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 700px;
+    margin-left: -75px;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+    cursor: grab;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.card {
+    overflow: visible;
+    width: 270px;
+    height: 130px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animasi card saat hover */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Card naik sedikit saat hover */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Shadow lebih besar saat hover */
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+    border-radius: 5px;
+}
+
+.front, .back {
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.back {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.back::before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 160px;
+    height: 160%;
+    animation: rotation_481 5000ms infinite linear;
+}
+
+.back-content {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #151515;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.back-content img {
+    height: 100px;
+    width: 100px;
+    transition: transform 0.3s ease-in-out; /* Animasi gambar saat hover */
+}
+
+.back-content img:hover {
+    transform: scale(1.1); /* Gambar membesar saat hover */
+}
+
+.back-content strong {
+    margin-bottom: 20px;
+    margin-top: -30px;
+}
+
+.card:hover .content {
+    transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.front {
+    transform: rotateY(180deg);
+    color: #14826E;
+    background-color: #151515;
+}
+
+.front .front-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.front-content .badge {
+    background-color: #fff;
+    padding: 2px 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    width: fit-content;
+}
+
+.front-content p {
+    font-size: 13px;
+    box-shadow: 0px 0px 10px 5px #00000088;
+    background-color: #fff;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.description {
+    box-shadow: 0px 0px 10px 5px #00000088;
+    width: 100%;
+    padding: 10px;
+    background-color: #00000099;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    height: -10px;
+}
+
+.title {
+    font-size: 11px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title p {
+    width: 50%;
+}
+
+.card-footer {
+    color: #ffffff88;
+    margin-top: 5px;
+    font-size: 8px;
+    height: 20px;
+}
+
+.front .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #ffbb66;
+    position: relative;
+    filter: blur(15px);
+    animation: floating 2600ms infinite linear;
+}
+
+#bottom {
+    background-color: #ff8866;
+    left: 50px;
+    top: 0px;
+    width: 150px;
+    height: 150px;
+    animation-delay: -800ms;
+}
+
+#right {
+    background-color: #ff2233;
+    left: 160px;
+    top: -80px;
+    width: 30px;
+    height: 30px;
+    animation-delay: -1800ms;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/*============== GAMBAR KANAN ============== */
+.diagonal-image {
+    position: absolute;
+    top: 35%;
+    right: 10%;
+    left: 70%;
+    width: 300px;
+    height: auto;
+    z-index: 4;
+    transition: transform 0.5s ease-in-out; /* Animasi gambar saat hover */
+}
+
+.video-container:hover .diagonal-image {
+    transform: translateX(-20px); /* Geser gambar ke kiri saat hover */
+}
+
+.diagonal-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Animasi gambar saat hover */
+}
+
+.diagonal-image img:hover {
+    transform: scale(1.1); /* Gambar membesar saat hover */
+}
+
+/* Overlay tetap berada di atas video */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.79);
+    clip-path: polygon(0 0, 65% 0, 55% 100%, 0 100%);
+    z-index: 2;
+}

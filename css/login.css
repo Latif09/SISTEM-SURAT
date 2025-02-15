@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/assets/login/image\ 31.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.5s ease; /* Animasi perubahan background */
+}
+
+.container {
+    max-width: 350px;
+    background: #f8f9fd;
+    background: linear-gradient(
+        0deg,
+        rgba(17, 15, 50, 0.923) 0%,
+        rgba(255, 255, 255, 0.259) 0%
+    );
+    border-radius: 40px;
+    padding: 25px 35px;
+    border: 3px solid rgb(18, 13, 53);
+    box-shadow: rgba(212, 225, 231, 0.878) 0px 30px 30px -20px;
+    margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi transformasi */
+}
+
+.container:hover {
+    transform: scale(1.02); /* Membesar saat hover */
+    box-shadow: rgba(212, 225, 231, 0.95) 0px 40px 40px -20px; /* Bayangan lebih tebal */
+}
+
+.heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(254, 255, 255);
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.heading:hover {
+    color: #6a5af9; /* Warna berubah saat hover */
+}
+
+.form {
+    margin-top: 20px;
+}
+
+.form .input {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: #cff0ff 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+    transition: border-inline 0.3s ease, box-shadow 0.3s ease; /* Animasi border dan shadow */
+}
+
+.form .input::-moz-placeholder {
+    color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+    color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+    outline: none;
+    border-inline: 2px solid #12b1d1;
+    box-shadow: #cff0ff 0px 15px 15px -10px; /* Shadow lebih tebal saat focus */
+}
+
+.form .forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.form .forgot-password a {
+    font-size: 11px;
+    color: rgb(5, 34, 52);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.form .forgot-password a:hover {
+    color: #6a5af9; /* Warna berubah saat hover */
+}
+
+.form .login-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(
+        45deg,
+        rgb(16, 137, 211) 0%,
+        rgb(18, 177, 209) 100%
+    );
+    color: white;
+    padding-block: 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+    transform: scale(1.03);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+
+.social-account-container {
+    margin-top: 25px;
+}
+
+.social-account-container .title {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(170, 170, 170);
+}
+
+.social-account-container .social-accounts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.social-account-container .social-accounts .social-button {
+    background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+    border: 5px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-account-container .social-accounts .social-button .svg {
+    fill: white;
+    margin: auto;
+}
+
+.social-account-container .social-accounts .social-button:hover {
+    transform: scale(1.2);
+}
+
+.social-account-container .social-accounts .social-button:active {
+    transform: scale(0.9);
+}
+
+.agreement {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.agreement a {
+    text-decoration: none;
+    color: #0099ff;
+    font-size: 9px;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.agreement a:hover {
+    color: #6a5af9; /* Warna berubah saat hover */
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, #0099ff, #0072ff);
+    transition: background 0.3s ease, transform 0.2s ease; /* Animasi background dan transform */
+}
+
+/* Hover Effect */
+.login-button:hover {
+    background: linear-gradient(90deg, #0072ff, #0099ff);
+    transform: scale(1.05);
+}

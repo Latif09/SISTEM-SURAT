@@ -1,0 +1,589 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap");
+
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: #685cfe;
+    --main-transition: 0.5s all ease-in-out;
+}
+
+body {
+    background-color: #3333;
+}
+
+::selection {
+    color: white;
+    background: var(--main-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* End Global Rules */
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Background untuk seluruh halaman */
+}
+
+.dashboard {
+    display: flex;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 100px; /* Sesuaikan dengan ukuran default sidebar */
+    flex-grow: 1;
+    background-image: url(/assets/login/image\ 3.png);
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto; /* Hanya bagian konten yang bisa di-scroll */
+    transition: margin-left var(--main-transition);
+    animation: fadeIn 0.5s ease-in-out; /* Animasi fadeIn untuk konten utama */
+    
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 300px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar:hover {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    .sidebar:hover ~ .main-content {
+        margin-left: 250px;
+    }
+}
+
+/* Start Sidebar */
+.sidebar {
+    width: 100px;
+    background-color: rgba(55, 97, 238, 0.1); 
+    padding: 20px;
+    position: fixed;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover {
+    width: 300px;
+    background-color: #fff; 
+
+}
+
+.sidebar .dots {
+    width: 60px;
+    display: flex;
+}
+
+.sidebar .dots p {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.sidebar .profile {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: var(--main-color);
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    margin: 30px 0;
+}
+
+.sidebar img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.sidebar ul {
+    padding-bottom: 30px;
+    list-style: none;
+}
+
+.sidebar ul span {
+    color: #8f99cc;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 13px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.sidebar ul li {
+    padding-left: 10px;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover ul li {
+    padding-left: 0px;
+}
+
+.sidebar ul li a {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    transition: 0.3s all ease-in-out;
+    font-size: 16px;
+    width: 300px;
+    color: #555e8f;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sidebar:hover a {
+    width: 100%;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ebf0fe;
+    color: var(--main-color);
+}
+
+.sidebar ul li a ion-icon {
+    font-size: 22px;
+}
+
+.sidebar ul li.noti a ion-icon {
+    position: relative;
+}
+
+.sidebar ul li.noti a ion-icon::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    background-color: #3761ee;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.sidebar ul li.likes a ion-icon {
+    position: relative;
+}
+
+.sidebar ul li.likes a ion-icon::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    background-color: #e45447;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.sidebar ul li a p {
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover ul li a p {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sidebar ul li.switch-theme {
+    position: relative;
+}
+
+.sidebar ul li.switch-theme button {
+    background-color: #ddd;
+    border: none;
+    border-radius: 50px;
+    height: 25px;
+    width: 50px;
+    padding: 5px;
+    position: absolute;
+    right: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover ul li.switch-theme button {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sidebar ul li.switch-theme button .circle {
+    border-radius: 50%;
+    background-color: #fff;
+    height: 100%;
+    width: 15px;
+}
+
+/* Efek aktif */
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.sidebar ul li a.active ion-icon,
+.sidebar ul li a:hover ion-icon {
+    color: white;
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 300px;
+}
+
+/* Sub-menu styling */
+.sidebar ul .sub-menu {
+    margin-left: 20px;
+    max-height: 0; /* Mulai dengan tinggi 0 */
+    overflow: hidden; /* Sembunyikan konten yang melebihi tinggi */
+    transition: max-height 0.9s ease-in-out, opacity 0.9s ease-in-out; /* Animasi untuk tinggi dan opacity */
+    opacity: 0; /* Mulai dengan opacity 0 */
+}
+
+.sidebar ul li:hover .sub-menu {
+    max-height: 200px; /* Tinggi maksimal sub-menu */
+    opacity: 1; /* Tampilkan sepenuhnya */
+}
+
+.sidebar ul .sub-menu li a {
+    padding-left: 30px; /* Indentasi untuk sub-menu */
+    font-size: 14px; /* Ukuran font lebih kecil */
+    transition: transform 3s ease-in-out; /* Animasi untuk transform */
+}
+
+.sidebar ul .sub-menu li a:hover {
+    transform: translateX(5px); /* Geser sedikit ke kanan saat hover */
+    background-color: #ebf0fe;
+    color: var(--main-color);
+}
+
+.sidebar ul .sub-menu li a ion-icon {
+    font-size: 18px; /* Ukuran ikon lebih kecil */
+}
+
+/* End Sidebar */
+
+/* Content Styles */
+/* form */
+.form-berita {
+    /* margin-left: 300px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memposisikan konten secara horizontal di tengah */
+    justify-content: flex-start; /* Mulai dari atas */
+    padding-top: 20px; /* Memberikan jarak dari atas */
+    flex-grow: 1;
+    height: 100%;
+    /* background-color: #ffffff; */
+    overflow-y: auto;
+}
+
+.news-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* max-width: 600px; */
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-form label {
+    font-weight: 600;
+}
+
+.news-form input,
+.news-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.news-form input:focus,
+.news-form textarea:focus {
+    animation: inputFocus 0.9s ease-in-out forwards;
+    outline: none;
+}
+
+.news-form button {
+    padding: 10px;
+    border: none;
+    background: var(--main-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.news-form button:hover {
+    animation: buttonHover 0.3s ease-in-out forwards;
+}
+
+.main-content {
+    /* margin-left: 320px; Sesuaikan dengan ukuran default sidebar */
+    flex-grow: 1;
+    height: 100%;
+    /* display: ; */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 300px;
+}
+
+/* End content */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .sidebar.active {
+        width: 250px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* end form */
+
+/* Tabel Styles */
+/* Tambahkan CSS ini */
+.blue-icon {
+    color: #007bff; /* Warna biru */
+    font-weight: bold; /* Tebal */
+}
+
+.red-icon {
+    color: #dc3545; /* Warna merah */
+    font-weight: bold; /* Tebal */
+}
+
+.green-icon {
+    color: #28a745; /* Warna hijau */
+    font-weight: bold; /* Tebal */
+}
+
+#newsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#newsTable th,
+#newsTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#newsTable th {
+    background-color: var(--main-color);
+    color: white;
+}
+
+#newsTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#newsTable tr:hover {
+    animation: rowHover 1s ease-in-out forwards;
+}
+
+/* test */
+.content {
+    padding: 20px;
+    background-color: #ffffff; /* Background putih untuk content */
+    border-radius: 8px; /* Tambahkan border-radius untuk tampilan yang lebih halus */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan shadow untuk efek elevasi */
+    margin: 20px; /* Beri margin agar tidak menempel ke sisi */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.content:hover {
+    animation: cardHover 0.9s ease-in-out forwards;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa; /* Background abu-abu muda untuk header tabel */
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* Warna hover untuk baris tabel */
+}
+
+.table-hover tr:hover {
+    background-color: #e9ecef; /* Warna hover untuk tabel dengan class .table-hover */
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.status:hover {
+    animation: statusPulse 0.9s ease-in-out infinite;
+}
+
+.status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.in-progress {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.status.fixed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.download-icon {
+    color: #3498db;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.download-icon:hover {
+    animation: iconHover 0.9s ease-in-out forwards;
+}
+
+/* Animasi Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 4;
+    }
+}
+
+@keyframes buttonHover {
+    from {
+        background-color: var(--main-color);
+    }
+    to {
+        background-color: #584ae3;
+    }
+}
+
+@keyframes rowHover {
+    from {
+        background-color: #f2f2f2;
+    }
+    to {
+        background-color: #ddd;
+    }
+}
+
+@keyframes iconHover {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes inputFocus {
+    from {
+        border-color: #ddd;
+    }
+    to {
+        border-color: var(--main-color);
+    }
+}
+
+@keyframes statusPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes cardHover {
+    from {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}

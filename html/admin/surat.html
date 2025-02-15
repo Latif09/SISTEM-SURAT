@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/admin/surat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="dots">
+                <img src="/assets/sidebar/profile (1).png" alt="dots" />
+                <p>ADMIN 1</p>
+            </div>
+        
+            <ul>
+                <br>
+                <span>Analytics</span>
+                <li>
+                    <a href="/html/admin/dashboard.html">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/admin/surat.html" class="active">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <p>Pelayanan Surat</p>
+                    </a>
+                    <!-- Sub-menu untuk Pelayanan Surat -->
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/html/admin/surat-keterangan.html">
+                                <ion-icon name="document-text-outline"></ion-icon>
+                                <p>Surat Keterangan</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/html/admin/surat-permohonan.html">
+                                <ion-icon name="document-text-outline"></ion-icon>
+                                <p>Surat Permohonan</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/html/admin/surat-pernyataan.html">
+                                <ion-icon name="document-text-outline"></ion-icon>
+                                <p>Surat Pernyataan</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        
+            <ul>
+                <span>Content</span>
+                <li class="noti">
+                    <a href="/html/admin/notif.html">
+                        <ion-icon name="notifications-outline"></ion-icon>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/admin/berita.html">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <p>Berita</p>
+                    </a>
+                </li>
+                <li class="likes">
+                    <a href="/html/admin/">
+                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                        <p>Pengaduan</p>
+                    </a>
+                </li>
+            </ul>
+        
+            <ul>
+                <span>Custom</span>
+                <li class="switch-theme">
+                    <!-- Darkmode switch -->
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <p>Logout</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Content -->
+        <div class="content">
+            <h2>Data Surat</h2>
+            <label for="jenis_tabel">Pilih Jenis Surat:</label>
+
+                <!-- Dropdown Pilihan Surat -->
+            <!-- <label for="jenis_surat">Jenis Surat:</label> -->
+            <select id="jenis_surat" name="jenis_surat" required onchange="tampilkanTabel()">
+                <option value="" disabled selected>Pilih Jenis Surat</option>
+                <option value="keterangan">Surat Keterangan</option>
+                <option value="permohonan">Surat Permohonan</option>
+                <option value="pernyataan">Surat Pernyataan</option>
+            </select>
+
+            <!-- TABEL SURAT KETERANGAN -->
+            <div id="tabel_keterangan" class="hidden">
+                <!-- <h3>Data Surat Keterangan</h3> -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Jenis Surat</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Budi Santoso</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-01</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                            <td>Eko Prasetyo</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-04</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr><tr>
+                            <td>Budi Santoso</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-01</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                            <td>Eko Prasetyo</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-04</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr><tr>
+                            <td>Budi Santoso</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-01</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                            <td>Eko Prasetyo</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-04</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr><tr>
+                            <td>Budi Santoso</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-01</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                            <td>Eko Prasetyo</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-04</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr><tr>
+                            <td>Budi Santoso</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-01</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                            <td>Eko Prasetyo</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-04</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr><tr>
+                            <td>Budi Santoso</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-01</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                            <td>Eko Prasetyo</td>
+                            <td>Surat Keterangan</td>
+                            <td>2023-10-04</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TABEL SURAT PERMOHONAN -->
+            <div id="tabel_permohonan" class="hidden">
+                <h3>Data Surat Permohonan</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Jenis Surat</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ani Wijaya</td>
+                            <td>Permohonan</td>
+                            <td>2023-10-02</td>
+                            <td><span class="status in-progress">In progress</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>Rina Astuti</td>
+                            <td>Permohonan</td>
+                            <td>2023-10-05</td>
+                            <td><span class="status in-progress">In progress</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TABEL SURAT PERNYATAAN -->
+            <div id="tabel_pernyataan" class="hidden">
+                <h3>Data Surat Pernyataan</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Jenis Surat</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dewi Lestari</td>
+                            <td>Pernyataan</td>
+                            <td>2023-10-03</td>
+                            <td><span class="status fixed">Fixed</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>Budi Santoso</td>
+                            <td>Surat Pernyataan</td>
+                            <td>2023-10-01</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="#" class="download-icon"><i class="fas fa-download"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin/surat.js"></script>
+</body>
+</html>

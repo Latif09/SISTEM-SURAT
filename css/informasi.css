@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #EAEDED;
+    color: #333;
+    /* transition: background-color 0.5s ease; Animasi perubahan background */
+}
+
+
+.hero {
+    background: url('/assets/informasi/sampul.jpg') no-repeat center center/cover;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 0.5s ease; /* Animasi perubahan background */
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animasi background dan transform */
+}
+
+.hero-overlay:hover {
+    background: rgba(0, 0, 0, 0.7); /* Warna overlay lebih gelap saat hover */
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.hero-overlay h1 {
+    font-size: 24px;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.hero-overlay h1:hover {
+    color: #ffcc00; /* Warna teks berubah saat hover */
+}
+
+.hero-overlay p {
+    font-size: 18px;
+    font-weight: 400;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.hero-overlay p:hover {
+    color: #ffcc00; /* Warna teks berubah saat hover */
+}
+
+/* Container */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+    transition: transform 0.3s ease; /* Animasi transform */
+}
+
+.container:hover {
+    transform: scale(1.02); /* Membesar saat hover */
+}
+
+/* Main Content */
+.news {
+    flex: 2;
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-category {
+    background: #ff0080;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animasi background dan transform */
+}
+
+.news-category:hover {
+    background: #e60073; /* Warna background berubah saat hover */
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.see-all {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease; /* Animasi warna dan transform */
+}
+
+.see-all:hover {
+    color: #0056b3; /* Warna teks berubah saat hover */
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.main-news {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi transform dan shadow */
+}
+
+.main-news:hover {
+    transform: translateY(-5px); /* Bergerak ke atas saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow lebih tebal saat hover */
+}
+
+.main-news img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Animasi transform */
+}
+
+.main-news img:hover {
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.main-news h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.main-news h2:hover {
+    color: #ff0080; /* Warna teks berubah saat hover */
+}
+
+.main-news p {
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.main-news p:hover {
+    color: #333; /* Warna teks berubah saat hover */
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi transform dan shadow */
+}
+
+.sidebar:hover {
+    transform: translateY(-5px); /* Bergerak ke atas saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow lebih tebal saat hover */
+}
+
+.sidebar h3 {
+    background: #555;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animasi background dan transform */
+}
+
+.sidebar h3:hover {
+    background: #444; /* Warna background berubah saat hover */
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.news-item {
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi transform dan shadow */
+}
+
+.news-item:hover {
+    transform: translateY(-5px); /* Bergerak ke atas saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow lebih tebal saat hover */
+}
+
+.news-item img {
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    margin-left: 40px;
+    transition: transform 0.3s ease; /* Animasi transform */
+}
+
+.news-item img:hover {
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+/* Grid Berita 4x4 */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 15px;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.news-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s ease; /* Animasi transform dan shadow */
+}
+
+.news-card:hover {
+    transform: translateY(-5px); /* Bergerak ke atas saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow lebih tebal saat hover */
+}
+
+.news-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Animasi transform */
+}
+
+.news-card img:hover {
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.news-label {
+    display: inline-block;
+    background: #ffcc00;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animasi background dan transform */
+}
+
+.news-label:hover {
+    background: #e6b800; /* Warna background berubah saat hover */
+    transform: scale(1.05); /* Membesar saat hover */
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.news-title:hover {
+    color: #ff0080; /* Warna teks berubah saat hover */
+}
+
+.news-date {
+    font-size: 12px;
+    color: #777;
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.news-date:hover {
+    color: #555; /* Warna teks berubah saat hover */
+}
+
+.read-more {
+    background: #2d2d2d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animasi background dan transform */
+}
+
+.read-more:hover {
+    background: #444; /* Warna background berubah saat hover */
+    transform: scale(1.05); /* Membesar saat hover */
+}

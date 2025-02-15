@@ -1,0 +1,391 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap");
+
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: #685cfe;
+    --main-transition: 0.5s all ease-in-out;
+}
+
+body {
+    background-color: #3333;
+}
+
+::selection {
+    color: white;
+    background: var(--main-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* End Global Rules */
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Background untuk seluruh halaman */
+}
+
+.dashboard {
+    display: flex;
+}
+
+/* Start Sidebar */
+.sidebar {
+    width: 100px;
+    background-color: rgba(55, 97, 238, 0.1); 
+    padding: 20px;
+    position: fixed;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover {
+    width: 300px;
+    background-color: #fff; 
+
+}
+
+.sidebar .dots {
+    width: 60px;
+    display: flex;
+}
+
+.sidebar .dots p {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.sidebar .profile {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: var(--main-color);
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    margin: 30px 0;
+}
+
+.sidebar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar ul {
+    padding-bottom: 30px;
+    list-style: none;
+}
+
+.sidebar ul span {
+    color: #8f99cc;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 13px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.sidebar ul li {
+    padding-left: 10px;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover ul li {
+    padding-left: 0px;
+}
+
+.sidebar ul li a {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    transition: 0.3s all ease-in-out;
+    font-size: 16px;
+    width: 300px;
+    color: #555e8f;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sidebar:hover a {
+    width: 100%;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ebf0fe;
+    color: var(--main-color);
+}
+
+.sidebar ul li a ion-icon {
+    font-size: 22px;
+}
+
+.sidebar ul li.noti a ion-icon {
+    position: relative;
+}
+
+.sidebar ul li.noti a ion-icon::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    background-color: #3761ee;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.sidebar ul li.likes a ion-icon {
+    position: relative;
+}
+
+.sidebar ul li.likes a ion-icon::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    background-color: #e45447;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.sidebar ul li a p {
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover ul li a p {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sidebar ul li.switch-theme {
+    position: relative;
+}
+
+.sidebar ul li.switch-theme button {
+    background-color: #ddd;
+    border: none;
+    border-radius: 50px;
+    height: 25px;
+    width: 50px;
+    padding: 5px;
+    position: absolute;
+    right: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--main-transition);
+}
+
+.sidebar:hover ul li.switch-theme button {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sidebar ul li.switch-theme button .circle {
+    border-radius: 50%;
+    background-color: #fff;
+    height: 100%;
+    width: 15px;
+}
+
+/* Efek aktif */
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.sidebar ul li a.active ion-icon,
+.sidebar ul li a:hover ion-icon {
+    color: white;
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 300px;
+}
+
+/* Sub-menu styling */
+.sidebar ul .sub-menu {
+    margin-left: 20px;
+    max-height: 0; /* Mulai dengan tinggi 0 */
+    overflow: hidden; /* Sembunyikan konten yang melebihi tinggi */
+    transition: max-height 0.9s ease-in-out, opacity 0.9s ease-in-out; /* Animasi untuk tinggi dan opacity */
+    opacity: 0; /* Mulai dengan opacity 0 */
+}
+
+.sidebar ul li:hover .sub-menu {
+    max-height: 200px; /* Tinggi maksimal sub-menu */
+    opacity: 1; /* Tampilkan sepenuhnya */
+}
+
+.sidebar ul .sub-menu li a {
+    padding-left: 30px; /* Indentasi untuk sub-menu */
+    font-size: 14px; /* Ukuran font lebih kecil */
+    transition: transform 3s ease-in-out; /* Animasi untuk transform */
+}
+
+.sidebar ul .sub-menu li a:hover {
+    transform: translateX(5px); /* Geser sedikit ke kanan saat hover */
+    background-color: #ebf0fe;
+    color: var(--main-color);
+}
+
+.sidebar ul .sub-menu li a ion-icon {
+    font-size: 18px; /* Ukuran ikon lebih kecil */
+}
+
+/* End Sidebar */
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 100px; /* Sesuaikan dengan ukuran default sidebar */
+    flex-grow: 1;
+    /* background-image: url(/assets/login/image\ 3.png); */
+    background-color: rgba(55, 97, 238, 0.1); 
+
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto; /* Hanya bagian konten yang bisa di-scroll */
+    transition: margin-left var(--main-transition);
+    background-size: auto;
+    animation: fadeIn 0.5s ease-in-out; /* Animasi fadeIn untuk konten utama */
+}
+
+/* Content Styles */
+.content {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Putih dengan transparansi 50% */
+    border-radius: 8px; /* Border radius untuk tampilan yang halus */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.352); /* Shadow dengan transparansi */
+    margin: 20px; /* Margin untuk jarak */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.content:hover {
+    transform: translateY(-5px); /* Efek hover naik sedikit */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow lebih besar saat hover */
+}
+
+.notifications {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.notification-item {
+    background-color: rgba(55, 97, 238, 0.1); 
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+
+.notification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #685cfe;
+    transition: transform 0.3s ease-in-out;
+}
+
+.notification-item:hover .notification-icon {
+    transform: rotate(15deg); /* Ikon berputar sedikit saat hover */
+}
+
+.notification-content {
+    flex-grow: 1;
+}
+
+.notification-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.notification-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.notification-time {
+    font-size: 0.8rem;
+    color: #999;
+    text-align: right;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .sidebar.active {
+        width: 250px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar:hover {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    .sidebar:hover ~ .main-content {
+        margin-left: 250px;
+    }
+}
+
+/* Animasi Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

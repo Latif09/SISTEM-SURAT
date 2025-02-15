@@ -1,0 +1,473 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap");
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --main-color: #685cfe;
+    --main-transition: 0.5s all ease-in-out;
+}
+body {
+    background-color: #685cfe;
+}
+::selection {
+    color: white;
+    background: var(--main-color);
+}
+.hidden {
+    display: none;
+}
+/* End Global Rules */
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Background untuk seluruh halaman */
+}
+
+.dashboard {
+    display: flex;
+}
+
+
+
+
+
+
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 100px; /* Sesuaikan dengan ukuran default sidebar */
+    flex-grow: 1;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto; /* Hanya bagian konten yang bisa di-scroll */
+    transition: margin-left var(--main-transition);
+}
+video {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan video menutupi seluruh area */
+}
+.sidebar:hover ~ .main-content {
+    margin-left: 300px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar:hover {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    .sidebar:hover ~ .main-content {
+        margin-left: 250px;
+    }
+}
+/* Start Sidebar */
+.sidebar {
+    width: 100px;
+    background-color: rgba(55, 97, 238, 0.1); 
+    padding: 20px;
+    position: fixed;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    transition: var(--main-transition);
+}
+.sidebar:hover {
+    width: 300px;
+    background-color: #fff; 
+
+}
+.sidebar .dots {
+    width: 60px;
+    display: flex;
+}
+.sidebar .dots p{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.sidebar .profile {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: var(--main-color);
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    margin: 30px 0;
+}
+.sidebar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sidebar ul {
+    padding-bottom: 30px;
+    list-style: none;
+}
+.sidebar ul span {
+    color: #8f99cc;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 13px;
+    display: block;
+    padding-bottom: 20px;
+}
+.sidebar ul li {
+    padding-left: 10px;
+    transition: var(--main-transition);
+}
+.sidebar:hover ul li {
+    padding-left: 0px;
+}
+.sidebar ul li a {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    transition: 0.3s all ease-in-out;
+    font-size: 16px;
+    width: 300px;
+    color: #555e8f;
+    font-weight: 500;
+    text-decoration: none;
+}
+.sidebar:hover a {
+    width: 100%;
+}
+.sidebar ul li a:hover {
+    background-color: #ebf0fe;
+    color: var(--main-color);
+}
+.sidebar ul li a ion-icon {
+    font-size: 22px;
+}
+.sidebar ul li.noti a ion-icon {
+     position: relative;
+}
+.sidebar ul li.noti a ion-icon::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    background-color: #3761ee;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.sidebar ul li.likes a ion-icon {
+    position: relative;
+}
+.sidebar ul li.likes a ion-icon::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    background-color: #e45447;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.sidebar ul li a p {
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--main-transition);
+}
+.sidebar:hover ul li a p {
+    visibility: visible;
+    opacity: 1;
+}
+.sidebar ul li.switch-theme {
+    position: relative;
+}
+.sidebar ul li.switch-theme button {
+    background-color: #ddd;
+    border: none;
+    border-radius: 50px;
+    height: 25px;
+    width: 50px;
+    padding: 5px;
+    position: absolute;
+    right: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--main-transition);
+}
+.sidebar:hover ul li.switch-theme button {
+    visibility: visible;
+    opacity: 1;
+}
+.sidebar ul li.switch-theme button .circle {
+    border-radius: 50%;
+    background-color: #fff;
+    height: 100%;
+    width: 15px;
+}
+
+/* Efek aktif */
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.sidebar ul li a.active ion-icon,
+.sidebar ul li a:hover ion-icon {
+    color: white;
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 300px;
+}
+/* Sub-menu styling */
+.sidebar ul .sub-menu {
+    margin-left: 20px;
+    max-height: 0; /* Mulai dengan tinggi 0 */
+    overflow: hidden; /* Sembunyikan konten yang melebihi tinggi */
+    transition: max-height 0.9s ease-in-out, opacity 0.9s ease-in-out; /* Animasi untuk tinggi dan opacity */
+    opacity: 0; /* Mulai dengan opacity 0 */
+}
+
+.sidebar ul li:hover .sub-menu {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.sidebar ul .sub-menu li a {
+    padding-left: 30px;
+    font-size: 14px;
+    transition: transform 3s ease-in-out;
+}
+
+.sidebar ul .sub-menu li a:hover {
+    transform: translateX(5px); /* Geser sedikit ke kanan saat hover */
+    background-color: #ebf0fe;
+    color: var(--main-color);
+}
+
+.sidebar ul .sub-menu li a ion-icon {
+    font-size: 18px; /* Ukuran ikon lebih kecil */
+}
+/* End Sidebar */
+
+/* Content Styles */
+/* Card Styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+
+.card {
+    background-color: #3761ee;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(50% - 20px); /* Dua card dalam satu baris */
+    min-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card #visitorChart {
+    height: 50px; /* Atur tinggi diagram */
+    width: 100px;  /* Atur lebar diagram agar responsif */
+}
+/* .card {
+    height: 350px; 
+    width: 200px;  
+} */
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.card {
+    display: flex; /* Mengaktifkan flexbox */
+    flex-direction: column; /* Menyusun child elemen secara vertikal */
+    align-items: center; /* Memposisikan child elemen di tengah secara horizontal */
+    justify-content: center; /* Memposisikan child elemen di tengah secara vertikal */
+    background-color: rgba(55, 97, 238, 0.1); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    
+}
+
+.card #letterChart {
+    width: 300px !important; /* Sesuaikan ukuran lebar */
+    height: 300px !important; /* Sesuaikan ukuran tinggi */
+}
+
+.card .latter{
+    width: 200px;
+    background-color: #333;
+    
+}
+/* card notif */
+/* Container untuk Notifikasi dan Tabel Surat Masuk */
+.notification-table-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px; 
+}
+
+/* Card Notifikasi */
+.card.notification-card {
+    flex: 1;
+    background-color: rgba(55, 97, 238, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Tabel Surat Masuk */
+.card.table-card {
+    flex: 2; /* Lebar 2 bagian (lebih lebar dari Notifikasi) */
+    /* background-color: #3f3f46; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Notification Styles */
+.notification-list {
+    max-height: 200px;
+    overflow-y: auto; /* Aktifkan scroll jika konten melebihi tinggi */
+    scrollbar-width: none; /* Menyembunyikan scrollbar di Firefox */
+    -ms-overflow-style: none; /* Menyembunyikan scrollbar di IE dan Edge */
+}
+
+.notification-list::-webkit-scrollbar {
+    display: none; /* Menyembunyikan scrollbar di Chrome, Safari, dan Opera */
+}
+
+.notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.notification-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.notification-item p strong {
+    color: #333;
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Tabel mengisi lebar card */
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .notification-table-container {
+        flex-direction: column; /* Menumpuk card secara vertikal di layar kecil */
+    }
+
+    .card.notification-card,
+    .card.table-card {
+        flex: 1; /* Lebar penuh di layar kecil */
+    }
+}
+
+/* Diagram Styles */
+.card canvas {
+    width: 100% !important;
+    height: 200px !important; /* Sesuaikan tinggi diagram */
+}
+/* Responsive Table */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, .table-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* End content */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .sidebar.active {
+        width: 250px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
